@@ -1,11 +1,12 @@
 {
-  "verifiedAt": "2026-10-01T07:37:04.629Z",
+  "verifiedAt": "2026-10-01T16:45:43.649Z",
   "pluginRoot": ".",
   "host": "MCP SDK stdio Client; graphical host rendering verified separately",
   "results": [
     {
       "check": "initialize and tool discovery",
       "status": "passed",
+      "version": "1.1.0",
       "tools": [
         "search_cities",
         "get_weather",
@@ -33,8 +34,8 @@
     {
       "check": "real weather tool call",
       "status": "passed",
-      "dataTime": 1790839800000,
-      "temperature": 24.4,
+      "dataTime": 1790873100000,
+      "temperature": 20.6,
       "source": "Open-Meteo"
     },
     {
@@ -45,8 +46,10 @@
         "landmark": "西湖 · 雷峰夕照",
         "image": "/landscapes/hangzhou.jpg",
         "thumbnail": "/landscapes/hangzhou-thumb.jpg",
-        "focalPoint": "0% 50%",
-        "desktopScale": 1.8,
+        "focalPoint": "0% 86%",
+        "wideFocalPoint": "0% 85%",
+        "horizon": 0.78,
+        "desktopScale": 1.35,
         "mobileFocalPoint": "31% 48%",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_with_Leifeng_Pagoda_on_West_Lake.jpg",
         "author": "Yinweichen",
@@ -68,7 +71,14 @@
     {
       "check": "single-file MCP resource and display metadata",
       "status": "passed",
-      "bytes": 5534925
+      "bytes": 5576971
+    },
+    {
+      "check": "external loopback video, exact media CSP and seekable MP4 byte range",
+      "status": "passed",
+      "videoUrl": "http://127.0.0.1:4318/videos/newyork-daycycle-4k.mp4?v=f29fabd4e327",
+      "contentRange": "bytes 0-1023/62676514",
+      "nativeHostPlaybackVerified": false
     },
     {
       "check": "invalid latitude rejection",

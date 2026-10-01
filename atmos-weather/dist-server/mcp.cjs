@@ -24027,7 +24027,7 @@ var require_implementation = __commonJS({
       }
       return str;
     };
-    module2.exports = function bind(that) {
+    module2.exports = function bind2(that) {
       var target = this;
       if (typeof target !== "function" || toStr.apply(target) !== funcType) {
         throw new TypeError(ERROR_MESSAGE + target);
@@ -24105,11 +24105,11 @@ var require_reflectApply = __commonJS({
 var require_actualApply = __commonJS({
   "node_modules/call-bind-apply-helpers/actualApply.js"(exports2, module2) {
     "use strict";
-    var bind = require_function_bind();
+    var bind2 = require_function_bind();
     var $apply = require_functionApply();
     var $call = require_functionCall();
     var $reflectApply = require_reflectApply();
-    module2.exports = $reflectApply || bind.call($call, $apply);
+    module2.exports = $reflectApply || bind2.call($call, $apply);
   }
 });
 
@@ -24117,7 +24117,7 @@ var require_actualApply = __commonJS({
 var require_call_bind_apply_helpers = __commonJS({
   "node_modules/call-bind-apply-helpers/index.js"(exports2, module2) {
     "use strict";
-    var bind = require_function_bind();
+    var bind2 = require_function_bind();
     var $TypeError = require_type();
     var $call = require_functionCall();
     var $actualApply = require_actualApply();
@@ -24125,7 +24125,7 @@ var require_call_bind_apply_helpers = __commonJS({
       if (args.length < 1 || typeof args[0] !== "function") {
         throw new $TypeError("a function is required");
       }
-      return $actualApply(bind, $call, args);
+      return $actualApply(bind2, $call, args);
     };
   }
 });
@@ -24187,8 +24187,8 @@ var require_hasown = __commonJS({
     "use strict";
     var call = Function.prototype.call;
     var $hasOwn = Object.prototype.hasOwnProperty;
-    var bind = require_function_bind();
-    module2.exports = bind.call(call, $hasOwn);
+    var bind2 = require_function_bind();
+    module2.exports = bind2.call(call, $hasOwn);
   }
 });
 
@@ -24413,13 +24413,13 @@ var require_get_intrinsic = __commonJS({
       "%WeakMapPrototype%": ["WeakMap", "prototype"],
       "%WeakSetPrototype%": ["WeakSet", "prototype"]
     };
-    var bind = require_function_bind();
+    var bind2 = require_function_bind();
     var hasOwn = require_hasown();
-    var $concat = bind.call($call, Array.prototype.concat);
-    var $spliceApply = bind.call($apply, Array.prototype.splice);
-    var $replace = bind.call($call, String.prototype.replace);
-    var $strSlice = bind.call($call, String.prototype.slice);
-    var $exec = bind.call($call, RegExp.prototype.exec);
+    var $concat = bind2.call($call, Array.prototype.concat);
+    var $spliceApply = bind2.call($apply, Array.prototype.splice);
+    var $replace = bind2.call($call, String.prototype.replace);
+    var $strSlice = bind2.call($call, String.prototype.slice);
+    var $exec = bind2.call($call, RegExp.prototype.exec);
     var rePropName = /[^%.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|%$))/g;
     var reEscapeChar = /\\(\\)?/g;
     var stringToPath = function stringToPath2(string4) {
@@ -60654,7 +60654,9 @@ var LANDSCAPES = {
     "landmark": "\u5929\u575B \xB7 \u7948\u5E74\u6BBF",
     "image": "/landscapes/beijing.jpg",
     "thumbnail": "/landscapes/beijing-thumb.jpg",
-    "focalPoint": "50% 50%",
+    "focalPoint": "50% 55%",
+    "wideFocalPoint": "50% 40%",
+    "horizon": 0.72,
     "mobileFocalPoint": "76% 48%",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_Heaven_by_%E9%BB%84%E5%9D%9A%E5%9F%BA.jpg",
     "author": "\u9EC4\u575A\u57FA",
@@ -60668,6 +60670,8 @@ var LANDSCAPES = {
     "image": "/landscapes/shanghai.jpg",
     "thumbnail": "/landscapes/shanghai-thumb.jpg",
     "focalPoint": "50% 48%",
+    "wideFocalPoint": "50% 15%",
+    "horizon": 0.8,
     "mobileFocalPoint": "76% 47%",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shanghai_-_Skyline_Sunset_0057.jpg",
     "author": "Stefan Fussan",
@@ -60680,8 +60684,10 @@ var LANDSCAPES = {
     "landmark": "\u897F\u6E56 \xB7 \u96F7\u5CF0\u5915\u7167",
     "image": "/landscapes/hangzhou.jpg",
     "thumbnail": "/landscapes/hangzhou-thumb.jpg",
-    "focalPoint": "0% 50%",
-    "desktopScale": 1.8,
+    "focalPoint": "0% 86%",
+    "wideFocalPoint": "0% 85%",
+    "horizon": 0.78,
+    "desktopScale": 1.35,
     "mobileFocalPoint": "31% 48%",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_with_Leifeng_Pagoda_on_West_Lake.jpg",
     "author": "Yinweichen",
@@ -60694,7 +60700,10 @@ var LANDSCAPES = {
     "landmark": "\u9526\u6C5F \xB7 \u5B89\u987A\u5ECA\u6865",
     "image": "/landscapes/chengdu.jpg",
     "thumbnail": "/landscapes/chengdu-thumb.jpg",
-    "focalPoint": "50% 45%",
+    "focalPoint": "50% 30%",
+    "wideFocalPoint": "50% 33%",
+    "horizon": 0.46,
+    "desktopScale": 1.12,
     "mobileFocalPoint": "45% 42%",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anshun_Bridge_Night.jpg",
     "author": "Limesave",
@@ -60708,6 +60717,8 @@ var LANDSCAPES = {
     "image": "/landscapes/shenzhen.jpg",
     "thumbnail": "/landscapes/shenzhen-thumb.jpg",
     "focalPoint": "50% 48%",
+    "wideFocalPoint": "50% 20%",
+    "horizon": 0.67,
     "mobileFocalPoint": "53% 47%",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:20201112_The_skyline_at_Shenzhen_Bay.jpg",
     "author": "Windmemories",
@@ -60721,6 +60732,8 @@ var LANDSCAPES = {
     "image": "/landscapes/hongkong.jpg",
     "thumbnail": "/landscapes/hongkong-thumb.jpg",
     "focalPoint": "50% 50%",
+    "wideFocalPoint": "50% 25%",
+    "horizon": 0.13,
     "mobileFocalPoint": "48% 48%",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skyline_and_Victoria_Harbour_at_dusk,_view_from_Victoria_Peak,_Hong_Kong,_China_-_%E9%A6%99%E6%B8%AF%EF%BC%8C%E4%B8%AD%E5%9B%BD_(16215094838).jpg",
     "author": "Romain Pontida",
@@ -60734,6 +60747,8 @@ var LANDSCAPES = {
     "image": "/landscapes/tokyo.jpg",
     "thumbnail": "/landscapes/tokyo-thumb.jpg",
     "focalPoint": "50% 48%",
+    "wideFocalPoint": "50% 50%",
+    "horizon": 0.46,
     "mobileFocalPoint": "51% 47%",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokyo_Tower,_Minato_City.jpg",
     "author": "David Kernan",
@@ -60747,6 +60762,8 @@ var LANDSCAPES = {
     "image": "/landscapes/paris.jpg",
     "thumbnail": "/landscapes/paris-thumb.jpg",
     "focalPoint": "50% 48%",
+    "wideFocalPoint": "50% 40%",
+    "horizon": 0.64,
     "mobileFocalPoint": "16% 46%",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eiffel_Tower_sunset,_Paris_(9249818803).jpg",
     "author": "Mustang Joe",
@@ -60760,6 +60777,8 @@ var LANDSCAPES = {
     "image": "/landscapes/london.jpg",
     "thumbnail": "/landscapes/london-thumb.jpg",
     "focalPoint": "50% 50%",
+    "wideFocalPoint": "50% 0%",
+    "horizon": 0.81,
     "mobileFocalPoint": "63% 50%",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tower_Bridge_London_Dusk_Feb_2006.jpg",
     "author": "Diliff",
@@ -60772,7 +60791,10 @@ var LANDSCAPES = {
     "landmark": "\u4E1C\u6CB3 \xB7 \u66FC\u54C8\u987F\u5929\u9645\u7EBF",
     "image": "/landscapes/newyork.jpg",
     "thumbnail": "/landscapes/newyork-thumb.jpg",
-    "focalPoint": "50% 50%",
+    "focalPoint": "65% 30%",
+    "wideFocalPoint": "65% 43%",
+    "horizon": 0.515,
+    "desktopScale": 1.15,
     "mobileFocalPoint": "64% 48%",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Manhattan_Skyline_at_sunset_-_New_York.jpg",
     "author": "Giuseppe Milo",
@@ -60780,6 +60802,27 @@ var LANDSCAPES = {
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "color": "#285d7c"
   }
+};
+
+// shared/timelapses.ts
+var NEW_YORK_TIMELAPSE = {
+  cityId: "newyork",
+  src: "/videos/newyork-daycycle-4k.mp4?v=f29fabd4e327",
+  name: "\u66FC\u54C8\u987F \xB7 \u4E00\u65E5\u5149\u5F71",
+  width: 3840,
+  height: 2160,
+  frameRate: 24,
+  focalPoint: "50% 50%",
+  mobileFocalPoint: "70% 50%",
+  startHour: 6,
+  endHour: 30,
+  generated: true,
+  seamlessLoop: false,
+  source: "\u7528\u6237\u63D0\u4F9B\u7684 Seedance AI \u751F\u6210\u5F71\u7247\uFF1B\u7ECF 4K \u5347\u7EA7",
+  referenceAuthor: "Giuseppe Milo",
+  referenceSource: "https://commons.wikimedia.org/wiki/File:Manhattan_Skyline_at_sunset_-_New_York.jpg",
+  referenceLicense: "CC BY 2.0",
+  referenceLicenseUrl: "https://creativecommons.org/licenses/by/2.0/"
 };
 
 // shared/weather.ts
@@ -61261,6 +61304,112 @@ apiRouter.get("/weather", endpoint(async (req) => {
   return getWeather(city, { force: req.query.force === "1" || req.query.force === "true" });
 }));
 
+// server/loopback.ts
+var import_node_http = require("node:http");
+
+// package.json
+var package_default = {
+  name: "atmos-weather",
+  version: "1.1.0",
+  private: true,
+  type: "module",
+  description: "\u89C2\u6674 \xB7 Atmos \u2014 a window onto your city's weather",
+  engines: {
+    node: ">=22"
+  },
+  scripts: {
+    dev: "tsx watch server/index.ts",
+    build: "tsc --noEmit && vite build && npm run build:server",
+    "build:server": "esbuild server/index.ts --bundle --platform=node --format=esm --packages=external --outfile=dist-server/index.js && npm run build:mcp",
+    start: "NODE_ENV=production node dist-server/index.js",
+    mcp: "tsx server/mcp.ts",
+    test: "vitest run",
+    check: "tsc --noEmit",
+    "build:mcp": "esbuild server/mcp.ts --bundle --platform=node --format=cjs --outfile=dist-server/mcp.cjs",
+    "test:mcp": "node scripts/smoke-mcp.mjs",
+    "test:marketplace": "node scripts/verify-marketplace.mjs",
+    "package:plugin": "node scripts/package-plugin.mjs"
+  },
+  dependencies: {
+    "@modelcontextprotocol/ext-apps": "latest",
+    "@modelcontextprotocol/sdk": "latest",
+    express: "^5.1.0",
+    "lucide-react": "latest",
+    react: "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tz-lookup": "^6.1.25",
+    zod: "^4.2.0"
+  },
+  devDependencies: {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@types/tz-lookup": "^6.1.2",
+    "@vitejs/plugin-react": "latest",
+    esbuild: "latest",
+    tsx: "latest",
+    typescript: "^5.9.3",
+    vite: "latest",
+    "vite-plugin-singlefile": "latest",
+    vitest: "latest"
+  }
+};
+
+// server/loopback.ts
+var APP_IDENTITY = {
+  name: "atmos-weather",
+  version: package_default.version,
+  mediaVersion: new URL(NEW_YORK_TIMELAPSE.src, "http://localhost").searchParams.get("v")
+};
+function matchesAppIdentity(health) {
+  if (!health || typeof health !== "object") return false;
+  const record2 = health;
+  return record2.name === APP_IDENTITY.name && record2.version === APP_IDENTITY.version && record2.mediaVersion === APP_IDENTITY.mediaVersion;
+}
+async function matchingService(origin) {
+  try {
+    const response = await fetch(`${origin}/health`, { signal: AbortSignal.timeout(800), redirect: "error", cache: "no-store" });
+    return response.ok && matchesAppIdentity(await response.json());
+  } catch {
+    return false;
+  }
+}
+function bind(listener, port2) {
+  return new Promise((resolve, reject) => {
+    const server = (0, import_node_http.createServer)(listener);
+    const onError = (error62) => {
+      server.removeListener("listening", onListening);
+      reject(error62);
+    };
+    const onListening = () => {
+      server.removeListener("error", onError);
+      const address = server.address();
+      if (!address || typeof address === "string") {
+        server.close();
+        reject(new Error("Atmos could not determine its loopback port."));
+        return;
+      }
+      resolve({ server, origin: `http://127.0.0.1:${address.port}` });
+    };
+    server.once("error", onError);
+    server.once("listening", onListening);
+    server.listen(port2, "127.0.0.1");
+  });
+}
+async function startLoopbackApp(listener, preferredPort) {
+  if (!Number.isInteger(preferredPort) || preferredPort < 0 || preferredPort > 65535) throw new Error("Atmos port must be an integer from 0 to 65535.");
+  const preferredOrigin = `http://127.0.0.1:${preferredPort}`;
+  if (preferredPort && await matchingService(preferredOrigin)) return { origin: preferredOrigin };
+  try {
+    return await bind(listener, preferredPort);
+  } catch (error62) {
+    if (error62.code !== "EADDRINUSE") throw error62;
+    if (await matchingService(preferredOrigin)) return { origin: preferredOrigin };
+    return bind(listener, 0);
+  }
+}
+
 // server/mcp.ts
 var ROOT = process.env.ATMOS_PLUGIN_ROOT || process.cwd();
 var APP_URI = "ui://atmos/weather-v1.html";
@@ -61322,7 +61471,7 @@ function weatherText(weather) {
   return `${weather.city.name}\uFF1A${weatherDescription(weather.current.weatherCode)}\uFF0C${weather.current.temperature === null ? "\u6E29\u5EA6\u6682\u65E0\u6570\u636E" : `${weather.current.temperature}\xB0C`}\u3002${weather.summary} \u6570\u636E\u65F6\u95F4\uFF1A${localTime}\uFF08${weather.city.timezone}\uFF09\u3002${weather.cached ? "\u7F13\u5B58\u7ED3\u679C\u3002" : ""}${weather.stale ? "\u6570\u636E\u5DF2\u8FC7\u671F\uFF0C\u7B49\u5F85\u5237\u65B0\u3002" : ""}${weather.modelNote}`;
 }
 async function ensureWebApp() {
-  if (webServer) return webOrigin;
+  if (webServer?.listening) return webOrigin;
   if (webStarting) return webStarting;
   webStarting = startWebApp().finally(() => {
     webStarting = void 0;
@@ -61330,27 +61479,15 @@ async function ensureWebApp() {
   return webStarting;
 }
 async function startWebApp() {
-  try {
-    const response = await fetch(`${webOrigin}/health`, { signal: AbortSignal.timeout(800) });
-    const health = await response.json();
-    if (response.ok && health.name === "atmos-weather") return webOrigin;
-    throw new Error("The configured Atmos port is occupied by another app.");
-  } catch (error62) {
-    if (error62 instanceof Error && error62.message.includes("occupied")) throw error62;
-  }
   const app = (0, import_express2.default)();
   app.disable("x-powered-by");
   app.use("/api", apiRouter);
-  app.get("/health", (_req, res) => res.json({ ok: true, name: "atmos-weather" }));
+  app.get("/health", (_req, res) => res.set("Cache-Control", "no-store").json({ ok: true, ...APP_IDENTITY }));
   app.use(import_express2.default.static(import_node_path.default.join(ROOT, "dist")));
   app.get("/{*path}", (_req, res) => res.sendFile(import_node_path.default.join(ROOT, "dist/index.html")));
-  await new Promise((resolve, reject) => {
-    const candidate = app.listen(port, "127.0.0.1", () => {
-      webServer = candidate;
-      resolve();
-    });
-    candidate.once("error", reject);
-  });
+  const started = await startLoopbackApp(app, port);
+  webServer = started.server;
+  webOrigin = started.origin;
   return webOrigin;
 }
 async function appHtml() {
@@ -61378,8 +61515,26 @@ async function appHtml() {
   });
   return htmlPromise;
 }
+async function appResource() {
+  let html = await appHtml();
+  let mediaOrigin;
+  if (html.includes(NEW_YORK_TIMELAPSE.src)) {
+    try {
+      mediaOrigin = await ensureWebApp();
+      html = html.split(NEW_YORK_TIMELAPSE.src).join(new URL(NEW_YORK_TIMELAPSE.src, mediaOrigin).href);
+    } catch (error62) {
+      console.error("Atmos video service unavailable; retaining photo fallback:", error62 instanceof Error ? error62.message : error62);
+    }
+  }
+  return {
+    contents: [{ uri: APP_URI, mimeType: RESOURCE_MIME_TYPE, text: html, _meta: {
+      ui: { csp: { connectDomains: [], resourceDomains: mediaOrigin ? [mediaOrigin] : [] }, permissions: { geolocation: {} }, prefersBorder: false },
+      "openai/ui": { availableDisplayModes: ["fullscreen"], preferredDisplayMode: "fullscreen" }
+    } }]
+  };
+}
 function createAtmosMcpServer() {
-  const server = new McpServer({ name: "atmos-weather", version: "1.0.0" }, {
+  const server = new McpServer({ name: APP_IDENTITY.name, version: APP_IDENTITY.version }, {
     instructions: "\u89C2\u6674 \xB7 Atmos provides real weather and a curated city scenery app. Use search_cities to disambiguate; get_weather for data; open_weather_app for an interactive view. Scenery is a wallpaper, never live camera footage. No location is inferred without explicit coordinates or app geolocation consent."
   });
   server.registerTool("search_cities", {
@@ -61478,12 +61633,7 @@ function createAtmosMcpServer() {
       return toolError(error62);
     }
   });
-  server.registerResource("Atmos city weather", APP_URI, { description: "\u89C2\u6674 \xB7 Atmos immersive city weather", mimeType: RESOURCE_MIME_TYPE }, async () => ({
-    contents: [{ uri: APP_URI, mimeType: RESOURCE_MIME_TYPE, text: await appHtml(), _meta: {
-      ui: { csp: { connectDomains: [], resourceDomains: [] }, permissions: { geolocation: {} }, prefersBorder: false },
-      "openai/ui": { availableDisplayModes: ["fullscreen"], preferredDisplayMode: "fullscreen" }
-    } }]
-  }));
+  server.registerResource("Atmos city weather", APP_URI, { description: "\u89C2\u6674 \xB7 Atmos immersive city weather", mimeType: RESOURCE_MIME_TYPE }, appResource);
   return server;
 }
 async function main() {

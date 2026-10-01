@@ -4,7 +4,9 @@
 
 这是 Atmos 的 **GitHub 发行仓库**，提供已构建的 Codex 插件。插件在使用者自己的电脑上运行，无需自建服务器。个人、非商业天气查询无需 API Key。
 
-![上海天气界面](atmos-weather/docs/screenshots/shanghai-desktop.png)
+当前版本 **1.1.0**：新增七类天气特效、玻璃材质界面与纽约 4K 光影影片，修复播放定位和切城后链接不一致的问题。完整[版本记录](atmos-weather/docs/changelog.md)。
+
+![纽约4K光影界面](atmos-weather/docs/screenshots/newyork-smooth-playback.png)
 
 ## 安装
 
@@ -34,6 +36,8 @@ codex plugin add atmos-weather@atmos-local
 
 精选背景包含北京、上海、杭州、成都、深圳、香港、东京、巴黎、伦敦、纽约。其他城市正常查询天气，缺少对应景观时明确显示临时背景。背景是精选照片与动态效果，并非实时摄像头画面。
 
+纽约内置 4K AI 延时影片（约 63 MB），默认定位到当地时间对应的画面。悬停或拖动「追随一天的光」时间尺，预览一天光影；点击「播放光影」观看，悬停会暂停，「回到此刻」恢复当地当前时间。光影是艺术化示意，天气始终为当前真实数据。片尾自动停住，再次播放从头开始；影片不可用时回到照片。关闭动态效果后仍可手动选时。「更换视频」只临时使用本地文件，刷新或设置中的「恢复默认」会回到内置影片。
+
 ## 更新
 
 ```bash
@@ -41,7 +45,7 @@ codex plugin marketplace upgrade atmos-local
 codex plugin add atmos-weather@atmos-local
 ```
 
-随后刷新插件并打开新聊天。市场升级拉取 `main`，再次安装刷新本机插件副本；运行中的聊天不会自动切换到新进程。版本与对应源码提交号见 [release.json](release.json)，历史版本可在仓库 Tags 中查看。
+随后刷新插件并打开新聊天。市场升级拉取 `main`，再次安装刷新本机插件副本；运行中的聊天不会自动切换到新进程。可在界面侧栏确认 `v 1.1.0`。版本与对应源码提交号见 [release.json](release.json)，历史版本可在仓库 Tags 中查看。
 
 ## 常见问题
 
@@ -49,7 +53,7 @@ codex plugin add atmos-weather@atmos-local
 - **启动时提示找不到 node**：确认已安装 Node.js 22+，并让桌面应用的运行环境也能找到 `node`；重新启动 Codex 后重试。
 - **已装过开发版**：`codex plugin marketplace list` 可查看来源。若 `atmos-local` 指向本地开发目录，先执行 `codex plugin marketplace remove atmos-local`，再执行本文的两条安装命令。
 - **工具安装了但界面没出现**：在新聊天明确选择插件并说“打开天气界面”。宿主支持 MCP Apps 时使用内嵌入口；否则 Codex 可打开工具返回的本机 Web 链接。原生 MCP Apps 内嵌画面尚未完成实机视觉验收，Codex 内置浏览器的 Web 入口已验证。
-- **页面打不开或端口被占用**：重新调用“打开天气”；插件默认使用 `127.0.0.1:4317`。即使图形入口失败，仍可使用天气查询工具获得文字结果。
+- **页面打不开或更新后仍看到旧版**：刷新插件并在新聊天重新调用“打开天气”，使用这次返回的链接。插件优先使用 `127.0.0.1:4317`；被旧版本或其他程序占用时会使用另一个本机端口，不会关闭已有服务。即使图形入口失败，仍可使用天气查询工具获得文字结果。
 - **网络错误或天气过期**：检查天气数据源的网络连通性，使用刷新/重试。缓存结果会标明数据时间，不会用模拟数据冒充实时天气。
 
 ## 数据与许可
@@ -57,9 +61,11 @@ codex plugin add atmos-weather@atmos-local
 天气来自 [Open-Meteo](https://open-meteo.com/)，当前值属于气象模型估计。天气数据时间、刷新时间和缓存状态分别显示。定位坐标仅在使用定位功能时交给天气和反向地理编码服务，收藏不经过开发者云端账号同步。
 
 - [十城照片署名、来源和许可](atmos-weather/docs/landscapes.md)
+- [纽约 AI 影片来源、处理与播放说明](atmos-weather/docs/manhattan-video.md)
 - [第三方软件许可声明](THIRD_PARTY_NOTICES.md)
 - [宿主集成与验证范围](atmos-weather/docs/integration.md)
 - [运行截图与验收记录](atmos-weather/docs/verification.md)
+- [本版 UI 与视频验收](atmos-weather/docs/video-playback-verification.md)
 
 ## 反馈与维护
 

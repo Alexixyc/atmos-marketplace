@@ -52,7 +52,8 @@ codex plugin add atmos-weather@atmos-local
 - opener 同时声明 global、thread Extensions 入口；线程标签名称为「城市天气之窗」。这些是可选能力，基本天气工具不依赖 Extensions。
 - 首个工具结果传入完整城市与天气，界面直接使用，避免二次调用 opener。
 - 单文件 HTML 内联本地风景，无外部图像域名依赖。天气与地理查询通过 MCP bridge，CSP 不需要开放任意网络域名。
-- `open_weather_app` 还返回含城市参数的 `webUrl`。它复用或启动仅监听 `127.0.0.1:4317` 的本地 Web 服务。未支持 MCP Apps 的宿主可通过浏览器打开同一套界面。
+- 纽约 4K 影片单独从插件本地 HTTP 服务加载，避免将约 63 MB 视频内嵌到 HTML。读取 UI resource 时也会启动媒体服务；CSP 仅添加其精确 origin 到 `resourceDomains`，支持 MP4 Range 取帧。服务不可用或宿主拒绝本地媒体时回到照片，Web 链接可打开相同前端。此次视频变更尚未重新安装到宿主缓存，也未声称完成原生 MCP Apps 视频播放验收。
+- `open_weather_app` 还返回含城市参数的 `webUrl`。它优先使用 `127.0.0.1:4317`，只复用插件版本和影片内容版本匹配的服务；旧服务或其他程序占用端口时，在系统分配的空闲 loopback 端口启动当前版本。工具链接和媒体 CSP 使用实际 origin。未支持 MCP Apps 的宿主可通过浏览器打开同一套界面。
 - 浏览器定位由用户点击触发。MCP iframe 的 geolocation 权限仍由宿主决定；拒绝或宿主不支持时，界面支持手动选城。
 
 ## 工具
