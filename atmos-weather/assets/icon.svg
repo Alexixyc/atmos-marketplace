@@ -1,1 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><rect width="80" height="80" rx="20" fill="#133d44"/><path d="M23 56V32a17 17 0 0 1 34 0v24z" fill="none" stroke="#f6ead6" stroke-width="3"/><path d="M24 46c11-9 21 9 32 0M40 15v41" fill="none" stroke="#f6ead6" stroke-width="2"/><circle cx="48" cy="32" r="5" fill="#e9c485"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="tile" x2=".7" y2="1">
+      <stop stop-color="#28636b"/><stop offset="1" stop-color="#0b303a"/>
+    </linearGradient>
+    <linearGradient id="glass" x2=".8" y2="1">
+      <stop stop-color="#fff9e9"/><stop offset="1" stop-color="#d8e8e1"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="124" height="124" rx="31" fill="url(#tile)"/>
+  <rect x="3" y="3" width="122" height="122" rx="30" fill="none" stroke="#e7f6ec" stroke-opacity=".2" stroke-width="2"/>
+  <path d="M31 98V51a33 33 0 0 1 66 0v47Z" fill="#edf8ed" fill-opacity=".07" stroke="url(#glass)" stroke-width="8" stroke-linejoin="round"/>
+  <circle cx="64" cy="62" r="13" fill="#f4cd80"/>
+  <path d="M36 81c18-6 38 6 56 0" fill="none" stroke="#e6eee0" stroke-width="4" stroke-linecap="round"/>
+</svg>

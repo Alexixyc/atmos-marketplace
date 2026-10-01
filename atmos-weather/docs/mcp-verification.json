@@ -1,12 +1,12 @@
 {
-  "verifiedAt": "2026-10-01T16:45:43.649Z",
+  "verifiedAt": "2026-10-01T17:29:29.980Z",
   "pluginRoot": ".",
   "host": "MCP SDK stdio Client; graphical host rendering verified separately",
   "results": [
     {
       "check": "initialize and tool discovery",
       "status": "passed",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "tools": [
         "search_cities",
         "get_weather",
@@ -34,8 +34,8 @@
     {
       "check": "real weather tool call",
       "status": "passed",
-      "dataTime": 1790873100000,
-      "temperature": 20.6,
+      "dataTime": 1790874900000,
+      "temperature": 20.5,
       "source": "Open-Meteo"
     },
     {
@@ -71,7 +71,7 @@
     {
       "check": "single-file MCP resource and display metadata",
       "status": "passed",
-      "bytes": 5576971
+      "bytes": 7646270
     },
     {
       "check": "external loopback video, exact media CSP and seekable MP4 byte range",

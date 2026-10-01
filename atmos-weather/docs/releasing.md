@@ -31,10 +31,10 @@ npm run dev
 
 ## 2. 更新版本与文档
 
-当前发行版本为 `1.1.0`（2026-10-02），历史见[版本记录](changelog.md)。后续每次正式发布提高版本，例如下次修复使用 `1.1.1`、新增兼容功能使用 `1.2.0`。以下以发布 `1.1.1` 为例，执行时替换为实际版本。
+当前发行版本为 `1.1.1`（2026-10-02），历史见[版本记录](changelog.md)。后续每次正式发布提高版本，例如下次修复使用 `1.1.2`、新增兼容功能使用 `1.2.0`。以下以发布 `1.1.2` 为例，执行时替换为实际版本。
 
 ```bash
-npm version 1.1.1 --no-git-tag-version
+npm version 1.1.2 --no-git-tag-version
 ```
 
 随后把 `plugin.json` 与 `.codex-plugin/plugin.json` 的 `version` 改为同一版本。`npm version` 会同步 `package.json` 和 `package-lock.json`；打包脚本还会检查两份插件清单的一致性。宿主客户端版本标识位于 `src/host.ts`，侧栏版本位于 `src/App.tsx`，发行时也应同步。MCP 与 Web 服务版本由 `server/loopback.ts` 从 `package.json` 读取，在构建时打包。保留插件名 `atmos-weather` 和市场名 `atmos-local`。
@@ -61,7 +61,7 @@ npm run test:marketplace
 git status --short
 git add .
 git diff --cached --stat
-git commit -m "Release Atmos 1.1.1"
+git commit -m "Release Atmos 1.1.2"
 git push origin master
 ```
 
@@ -132,17 +132,17 @@ npm run test:marketplace -- .cache/atmos-marketplace
 ```bash
 git -C .cache/atmos-marketplace add .agents/plugins/marketplace.json atmos-weather README.md .gitignore release.json THIRD_PARTY_NOTICES.md
 git -C .cache/atmos-marketplace diff --cached --stat
-git -C .cache/atmos-marketplace commit -m "Release Atmos 1.1.1"
+git -C .cache/atmos-marketplace commit -m "Release Atmos 1.1.2"
 git -C .cache/atmos-marketplace push origin HEAD:main
 ```
 
 需要归档版本时，在源码提交和对应发行提交分别创建同名标签；已经发布的标签保持不变：
 
 ```bash
-git tag -a v1.1.1 -m "Atmos 1.1.1 source"
-git push origin v1.1.1
-git -C .cache/atmos-marketplace tag -a v1.1.1 -m "Atmos 1.1.1 distribution"
-git -C .cache/atmos-marketplace push origin v1.1.1
+git tag -a v1.1.2 -m "Atmos 1.1.2 source"
+git push origin v1.1.2
+git -C .cache/atmos-marketplace tag -a v1.1.2 -m "Atmos 1.1.2 distribution"
+git -C .cache/atmos-marketplace push origin v1.1.2
 ```
 
 发布后核对两边 Git 状态与远程提交号，并从发行仓库重新拉取检查。可对回拉包运行 `node scripts/smoke-mcp.mjs /path/to/checkout/atmos-weather`（会更新本地验证记录），以及 `npm run test:marketplace -- /path/to/checkout`。如果希望保持源码工作区干净，可在临时目录执行冒烟脚本，让验证报告写入临时目录的 `docs/`。

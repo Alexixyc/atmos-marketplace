@@ -1,10 +1,12 @@
 # 观晴 · Atmos
 
+<img src="atmos-weather/assets/atmos-logo.png" width="104" height="104" alt="观晴 · Atmos 标志" />
+
 一扇窗，一座城。真实天气悬浮在城市风景之上，随当地时间自然变换。
 
 这是 Atmos 的 **GitHub 发行仓库**，提供已构建的 Codex 插件。插件在使用者自己的电脑上运行，无需自建服务器。个人、非商业天气查询无需 API Key。
 
-当前版本 **1.1.0**：新增七类天气特效、玻璃材质界面与纽约 4K 光影影片，修复播放定位和切城后链接不一致的问题。完整[版本记录](atmos-weather/docs/changelog.md)。
+当前版本 **1.1.1**，由 **Cyber Alexi** 设计与开发。采用全新玻璃拱窗标志，包含七类天气特效、玻璃界面与纽约 4K 光影影片。完整[版本记录](atmos-weather/docs/changelog.md)。
 
 ![纽约4K光影界面](atmos-weather/docs/screenshots/newyork-smooth-playback.png)
 
@@ -45,7 +47,7 @@ codex plugin marketplace upgrade atmos-local
 codex plugin add atmos-weather@atmos-local
 ```
 
-随后刷新插件并打开新聊天。市场升级拉取 `main`，再次安装刷新本机插件副本；运行中的聊天不会自动切换到新进程。可在界面侧栏确认 `v 1.1.0`。版本与对应源码提交号见 [release.json](release.json)，历史版本可在仓库 Tags 中查看。
+随后刷新插件并打开新聊天。市场升级拉取 `main`，再次安装刷新本机插件副本；运行中的聊天不会自动切换到新进程。可在界面侧栏确认 `v 1.1.1`。版本与对应源码提交号见 [release.json](release.json)，历史版本可在仓库 Tags 中查看。
 
 ## 常见问题
 

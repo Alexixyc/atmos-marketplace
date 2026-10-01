@@ -1,8 +1,8 @@
 {
   "name": "atmos-weather",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "观晴 · Atmos：城市风景天气应用。",
-  "author": { "name": "Atmos" },
+  "author": { "name": "Cyber Alexi" },
   "homepage": "https://github.com/Alexixyc/atmos-marketplace",
   "repository": "https://github.com/Alexixyc/weather-Atmos-codex-plugin",
   "skills": "./skills/",
@@ -11,10 +11,10 @@
     "displayName": "观晴 · Atmos",
     "shortDescription": "透过一扇窗，看见城市与天气",
     "longDescription": "真实天气、当地时间与十座精选城市的动态风景，支持中英文搜索和无密钥天气查询。",
-    "developerName": "Atmos",
+    "developerName": "Cyber Alexi",
     "category": "Productivity",
     "capabilities": ["Interactive"],
-    "logo": "./assets/icon.svg",
+    "logo": "./assets/atmos-logo.png",
     "composerIcon": "./assets/icon.svg",
     "defaultPrompt": ["打开天气", "看看杭州天气", "切换到上海"]
   }
