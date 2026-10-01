@@ -1,0 +1,82 @@
+[
+  {
+    "cityId": "beijing",
+    "file": "public/landscapes/beijing.jpg",
+    "width": 1920,
+    "height": 1200,
+    "bytes": 336517,
+    "sha256": "9b7becbc06db718bee0649e3ad6c183a6e32eacbd0189bafa3989abab2920db8"
+  },
+  {
+    "cityId": "shanghai",
+    "file": "public/landscapes/shanghai.jpg",
+    "width": 1920,
+    "height": 1196,
+    "bytes": 421365,
+    "sha256": "32a8e2caf1d3e896cc37ab453aab977e81467d3c5c9556ffdeec30eb99778b35"
+  },
+  {
+    "cityId": "hangzhou",
+    "file": "public/landscapes/hangzhou.jpg",
+    "width": 1920,
+    "height": 1280,
+    "bytes": 233397,
+    "sha256": "0635085adbd9772b54647d5e58d6330c3eab17bf01cbe56222462d2ddf06ef7d"
+  },
+  {
+    "cityId": "chengdu",
+    "file": "public/landscapes/chengdu.jpg",
+    "width": 1920,
+    "height": 1440,
+    "bytes": 377205,
+    "sha256": "4c2f6eea5532e38e378259c6d6950d251b08272fc05a15a1d0d31923d819c94e"
+  },
+  {
+    "cityId": "shenzhen",
+    "file": "public/landscapes/shenzhen.jpg",
+    "width": 1800,
+    "height": 1200,
+    "bytes": 387101,
+    "sha256": "3f0d25f8b038af8df6a7421be4afdf8e24f9c61de4c4e56426a912cee0f3df6d"
+  },
+  {
+    "cityId": "hongkong",
+    "file": "public/landscapes/hongkong.jpg",
+    "width": 1920,
+    "height": 966,
+    "bytes": 623802,
+    "sha256": "4d463c5116c88f0c2414710b35ef29070326a4a234e51b060fc44152c56bd255"
+  },
+  {
+    "cityId": "tokyo",
+    "file": "public/landscapes/tokyo.jpg",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 479928,
+    "sha256": "8523ddb110b94ef2a1662acce1eadc7c2e5ed0811012408f774499c403a2a64b"
+  },
+  {
+    "cityId": "paris",
+    "file": "public/landscapes/paris.jpg",
+    "width": 1902,
+    "height": 1062,
+    "bytes": 278301,
+    "sha256": "b12eb1c03f98a1e0ef8da03ef82ff6f1a121b35076a4ac35f28c1890fa6e1df7"
+  },
+  {
+    "cityId": "london",
+    "file": "public/landscapes/london.jpg",
+    "width": 1920,
+    "height": 851,
+    "bytes": 243024,
+    "sha256": "b45945909a70e0b219ec3b5ae8711b8743abda98fe0e41f71013ae0cd5d7bb3d"
+  },
+  {
+    "cityId": "newyork",
+    "file": "public/landscapes/newyork.jpg",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 162431,
+    "sha256": "d6069db841ff933844c95f4838f330e2df21d70ff51abb8f52beb9546fb4a213"
+  }
+]

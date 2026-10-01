@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "atmos": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${PLUGIN_ROOT}/dist-server/mcp.cjs"],
+      "cwd": "${PLUGIN_ROOT}",
+      "env": { "ATMOS_PLUGIN_ROOT": "${PLUGIN_ROOT}" }
+    }
+  }
+}

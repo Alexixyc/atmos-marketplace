@@ -1,0 +1,20 @@
+{
+  "name": "atmos-local",
+  "interface": {
+    "displayName": "观晴 · Atmos"
+  },
+  "plugins": [
+    {
+      "name": "atmos-weather",
+      "source": {
+        "source": "local",
+        "path": "./atmos-weather"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

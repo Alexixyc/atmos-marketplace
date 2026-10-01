@@ -1,0 +1,78 @@
+{
+  "verifiedAt": "2026-10-01T07:37:04.629Z",
+  "pluginRoot": ".",
+  "host": "MCP SDK stdio Client; graphical host rendering verified separately",
+  "results": [
+    {
+      "check": "initialize and tool discovery",
+      "status": "passed",
+      "tools": [
+        "search_cities",
+        "get_weather",
+        "get_city_landscape",
+        "reverse_geocode",
+        "open_weather_app"
+      ]
+    },
+    {
+      "check": "Chinese city search",
+      "status": "passed",
+      "city": {
+        "id": "hangzhou",
+        "name": "杭州",
+        "nameEn": "Hangzhou",
+        "country": "中国",
+        "countryCode": "CN",
+        "admin1": "浙江省",
+        "latitude": 30.2741,
+        "longitude": 120.1551,
+        "timezone": "Asia/Shanghai",
+        "featured": true
+      }
+    },
+    {
+      "check": "real weather tool call",
+      "status": "passed",
+      "dataTime": 1790839800000,
+      "temperature": 24.4,
+      "source": "Open-Meteo"
+    },
+    {
+      "check": "exact landscape metadata",
+      "status": "passed",
+      "landscape": {
+        "cityId": "hangzhou",
+        "landmark": "西湖 · 雷峰夕照",
+        "image": "/landscapes/hangzhou.jpg",
+        "thumbnail": "/landscapes/hangzhou-thumb.jpg",
+        "focalPoint": "0% 50%",
+        "desktopScale": 1.8,
+        "mobileFocalPoint": "31% 48%",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_with_Leifeng_Pagoda_on_West_Lake.jpg",
+        "author": "Yinweichen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "color": "#829399"
+      }
+    },
+    {
+      "check": "explicit public city coordinates reverse lookup",
+      "status": "passed",
+      "city": "杭州"
+    },
+    {
+      "check": "app opener and standalone fallback HTTP",
+      "status": "passed",
+      "webUrl": "http://127.0.0.1:4318/?city=hangzhou&lat=30.2741&lon=120.1551&name=%E6%9D%AD%E5%B7%9E&nameEn=Hangzhou&country=%E4%B8%AD%E5%9B%BD&countryCode=CN&tz=Asia%2FShanghai&admin1=%E6%B5%99%E6%B1%9F%E7%9C%81"
+    },
+    {
+      "check": "single-file MCP resource and display metadata",
+      "status": "passed",
+      "bytes": 5534925
+    },
+    {
+      "check": "invalid latitude rejection",
+      "status": "passed"
+    }
+  ]
+}

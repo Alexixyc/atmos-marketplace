@@ -1,0 +1,30 @@
+{
+  "verifiedAt": "2026-10-01T06:17:53.480Z",
+  "method": "Actual server/weather.ts getWeather calls to the public Open-Meteo Forecast API; Node 26.0.0",
+  "note": "Beijing's first request timed out; a separate retry passed. This file is QA evidence only and is never read by the application.",
+  "dataTime": "2026-10-01T06:15:00.000Z",
+  "geocoding": {
+    "verifiedOn": "2026-10-01",
+    "bilingualQueries": ["南京", "Nanjing"],
+    "sameStableId": "geonames:1799962",
+    "country": "中国",
+    "admin1": "江苏",
+    "timezone": "Asia/Shanghai",
+    "otherEnglishQuery": { "query": "Reykjavik", "id": "geonames:3413829", "timezone": "Atlantic/Reykjavik" },
+    "reverse": { "latitude": -33.8688, "longitude": 151.2093, "city": "Sydney", "countryCode": "AU", "timezone": "Australia/Sydney", "provider": "Photon fallback after Nominatim timeout" },
+    "coordinateWeather": { "latitude": -33.8688, "longitude": 151.2093, "temperatureC": 26.3, "hourly": 24, "daily": 7 },
+    "limitation": "Open-Meteo did not return results for the alternate Chinese transliteration 雷克雅未克; English Reykjavik and the Chinese query 南京 work. Search supports provider-indexed place names, not every alternate translation."
+  },
+  "results": [
+    { "city": "beijing", "status": "PASS", "temperatureC": 21.9, "timezone": "Asia/Shanghai", "hourly": 24, "daily": 7 },
+    { "city": "shanghai", "status": "PASS", "temperatureC": 23.2, "timezone": "Asia/Shanghai", "hourly": 24, "daily": 7 },
+    { "city": "hangzhou", "status": "PASS", "temperatureC": 25.5, "timezone": "Asia/Shanghai", "hourly": 24, "daily": 7 },
+    { "city": "chengdu", "status": "PASS", "temperatureC": 23.5, "timezone": "Asia/Shanghai", "hourly": 24, "daily": 7 },
+    { "city": "shenzhen", "status": "PASS", "temperatureC": 32.4, "timezone": "Asia/Shanghai", "hourly": 24, "daily": 7 },
+    { "city": "hongkong", "status": "PASS", "temperatureC": 30.8, "timezone": "Asia/Hong_Kong", "hourly": 24, "daily": 7 },
+    { "city": "tokyo", "status": "PASS", "temperatureC": 28.6, "timezone": "Asia/Tokyo", "hourly": 24, "daily": 7 },
+    { "city": "paris", "status": "PASS", "temperatureC": 16.8, "timezone": "Europe/Paris", "hourly": 24, "daily": 7 },
+    { "city": "london", "status": "PASS", "temperatureC": 14.8, "timezone": "Europe/London", "hourly": 24, "daily": 7 },
+    { "city": "newyork", "status": "PASS", "temperatureC": 17, "timezone": "America/New_York", "hourly": 24, "daily": 7 }
+  ]
+}

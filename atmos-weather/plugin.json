@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "atmos-weather",
+  "version": "1.0.0",
+  "description": "观晴 · Atmos：真实天气、城市风景与当地时间，透过一扇窗看见城市。",
+  "author": { "name": "Atmos" },
+  "homepage": "https://github.com/Alexixyc/atmos-marketplace",
+  "repository": "https://github.com/Alexixyc/weather-Atmos-codex-plugin",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "观晴 · Atmos",
+        "shortDescription": "透过一扇窗，看见城市与天气",
+        "longDescription": "搜索中英文城市，查看当前天气、未来 24 小时和 7 天预报，以及精选城市的动态风景。个人非商业使用，无需天气 API Key。",
+        "developerName": "Atmos",
+        "category": "Productivity",
+        "capabilities": ["Interactive"],
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg",
+        "defaultPrompt": ["打开天气", "看看杭州天气", "切换到上海"]
+      }
+    }
+  }
+}
