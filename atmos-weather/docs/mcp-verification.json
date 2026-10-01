@@ -1,12 +1,12 @@
 {
-  "verifiedAt": "2026-10-01T17:29:29.980Z",
+  "verifiedAt": "2026-10-01T18:26:17.489Z",
   "pluginRoot": ".",
   "host": "MCP SDK stdio Client; graphical host rendering verified separately",
   "results": [
     {
       "check": "initialize and tool discovery",
       "status": "passed",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "tools": [
         "search_cities",
         "get_weather",
@@ -34,8 +34,8 @@
     {
       "check": "real weather tool call",
       "status": "passed",
-      "dataTime": 1790874900000,
-      "temperature": 20.5,
+      "dataTime": 1790878500000,
+      "temperature": 20.3,
       "source": "Open-Meteo"
     },
     {
@@ -69,14 +69,21 @@
       "webUrl": "http://127.0.0.1:4318/?city=hangzhou&lat=30.2741&lon=120.1551&name=%E6%9D%AD%E5%B7%9E&nameEn=Hangzhou&country=%E4%B8%AD%E5%9B%BD&countryCode=CN&tz=Asia%2FShanghai&admin1=%E6%B5%99%E6%B1%9F%E7%9C%81"
     },
     {
-      "check": "single-file MCP resource and display metadata",
+      "check": "versioned single-file MCP resource and display metadata",
       "status": "passed",
-      "bytes": 7646270
+      "uri": "ui://atmos/weather-1.1.2.html",
+      "bytes": 7649848
     },
     {
-      "check": "external loopback video, exact media CSP and seekable MP4 byte range",
+      "check": "bundled standalone video and seekable MP4 byte range",
       "status": "passed",
       "videoUrl": "http://127.0.0.1:4318/videos/newyork-daycycle-4k.mp4?v=f29fabd4e327",
+      "contentRange": "bytes 0-1023/62676514"
+    },
+    {
+      "check": "release-pinned HTTPS video, exact media CSP and matching MP4 byte range",
+      "status": "passed",
+      "videoUrl": "https://raw.githubusercontent.com/Alexixyc/atmos-marketplace/v1.1.1/atmos-weather/dist/videos/newyork-daycycle-4k.mp4",
       "contentRange": "bytes 0-1023/62676514",
       "nativeHostPlaybackVerified": false
     },

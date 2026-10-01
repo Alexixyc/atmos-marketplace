@@ -1,6 +1,6 @@
 {
   "name": "atmos-weather",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "marketplace": "atmos-local",
-  "sourceCommit": "12d7dfea023fbe4f50161de8f01be6e9be9d8f3b"
+  "sourceCommit": "f06dedcf5edfdf3b6197b98f0b07c64f3617e714"
 }

@@ -60808,6 +60808,8 @@ var LANDSCAPES = {
 var NEW_YORK_TIMELAPSE = {
   cityId: "newyork",
   src: "/videos/newyork-daycycle-4k.mp4?v=f29fabd4e327",
+  // Native MCP Apps require HTTPS media; pin the same film to an immutable release.
+  embeddedSrc: "https://raw.githubusercontent.com/Alexixyc/atmos-marketplace/v1.1.1/atmos-weather/dist/videos/newyork-daycycle-4k.mp4",
   name: "\u66FC\u54C8\u987F \xB7 \u4E00\u65E5\u5149\u5F71",
   width: 3840,
   height: 2160,
@@ -61310,7 +61312,7 @@ var import_node_http = require("node:http");
 // package.json
 var package_default = {
   name: "atmos-weather",
-  version: "1.1.1",
+  version: "1.1.2",
   private: true,
   type: "module",
   description: "\u89C2\u6674 \xB7 Atmos \u2014 a window onto your city's weather",
@@ -61412,7 +61414,7 @@ async function startLoopbackApp(listener, preferredPort) {
 
 // server/mcp.ts
 var ROOT = process.env.ATMOS_PLUGIN_ROOT || process.cwd();
-var APP_URI = "ui://atmos/weather-v1.html";
+var APP_URI = `ui://atmos/weather-${APP_IDENTITY.version}.html`;
 var RESOURCE_MIME_TYPE = "text/html;profile=mcp-app";
 var port = Number(process.env.ATMOS_PORT || 4317);
 var webOrigin = `http://127.0.0.1:${port}`;
@@ -61519,12 +61521,8 @@ async function appResource() {
   let html = await appHtml();
   let mediaOrigin;
   if (html.includes(NEW_YORK_TIMELAPSE.src)) {
-    try {
-      mediaOrigin = await ensureWebApp();
-      html = html.split(NEW_YORK_TIMELAPSE.src).join(new URL(NEW_YORK_TIMELAPSE.src, mediaOrigin).href);
-    } catch (error62) {
-      console.error("Atmos video service unavailable; retaining photo fallback:", error62 instanceof Error ? error62.message : error62);
-    }
+    mediaOrigin = new URL(NEW_YORK_TIMELAPSE.embeddedSrc).origin;
+    html = html.split(NEW_YORK_TIMELAPSE.src).join(NEW_YORK_TIMELAPSE.embeddedSrc);
   }
   return {
     contents: [{ uri: APP_URI, mimeType: RESOURCE_MIME_TYPE, text: html, _meta: {
