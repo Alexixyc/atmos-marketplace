@@ -11,7 +11,7 @@ codex plugin marketplace add Alexixyc/atmos-marketplace --ref main
 codex plugin add atmos-weather@atmos-local
 ```
 
-更新到 1.1.2 时运行 `codex plugin marketplace upgrade atmos-local`，再运行 `codex plugin add atmos-weather@atmos-local`，刷新 Codex 后打开新聊天。发行版内含完整构建产物，由 Codex 自动启动本机服务；无需下载开发源码、运行 npm 或配置天气 API Key。可在侧栏核对 `v 1.1.2`，再说“看看纽约天气，打开天气界面”。
+更新到 1.1.3 时运行 `codex plugin marketplace upgrade atmos-local`，再运行 `codex plugin add atmos-weather@atmos-local`，刷新 Codex 后打开新聊天。详情页已打开的天气视图需关闭后重新打开。发行版内含完整构建产物，由 Codex 自动启动本机服务；无需下载开发源码、运行 npm 或配置天气 API Key。可在侧栏核对 `v 1.1.3`，再说“看看纽约天气，打开天气界面”。
 
 ## 从开发仓库安装
 
@@ -46,10 +46,11 @@ codex plugin add atmos-weather@atmos-local
 
 ## 图形入口与兼容策略
 
-- `open_weather_app` 是唯一渲染工具；1.1.2 关联 `ui://atmos/weather-1.1.2.html`。URI 从插件版本生成，升级时隔离旧 HTML 缓存。
+- `open_weather_app` 是唯一渲染工具；1.1.3 关联 `ui://atmos/weather-1.1.3.html`。URI 从插件版本生成，升级时隔离旧 HTML 缓存。
 - HTML MIME 为 `text/html;profile=mcp-app`，使用官方 MCP Apps `App` 初始化、接收首个工具结果和调用数据工具。
 - UI resource 的 `openai/ui` 元数据声明 `availableDisplayModes: ["fullscreen"]`、`preferredDisplayMode: "fullscreen"`。初始化后，只在宿主允许 fullscreen 时请求一次；宿主仍决定实际位置。
 - opener 同时声明 global、thread Extensions 入口；线程标签名称为「城市天气之窗」。这些是可选能力，基本天气工具不依赖 Extensions。
+- 全局入口的宿主会给 HTML/body 设置不透明底色。1.1.3 通过 `.app` 的独立堆叠上下文，使负层风景位于应用内部，不再被宿主底色盖住。修复前后的同样式复现、截图与实际全局页面验收边界见[背景遮挡修复记录](video-playback-verification.md#113-全局入口背景遮挡修复--2026-10-02)。
 - 首个工具结果传入完整城市与天气，界面直接使用，避免二次调用 opener。
 - 单文件 HTML 内联本地风景照片，无外部照片域名依赖。天气与地理查询通过 MCP bridge；视频独立加载，不将约 63 MB 媒体内嵌到 HTML。
 - 1.1.2 的内嵌影片从 `https://raw.githubusercontent.com` 读取，CSP 的 `resourceDomains` 仅声明该 HTTPS origin；地址固定到已发布的 `v1.1.1` 标签，不跟随 `main`。独立 Web 界面继续从插件本地服务读取包内同一影片。内容 SHA-256、完整 URL 与素材说明见[纽约影片说明](manhattan-video.md)。
@@ -77,9 +78,9 @@ codex plugin add atmos-weather@atmos-local
 
 已安装并检查类型：`@modelcontextprotocol/sdk 1.31.0`、`@modelcontextprotocol/ext-apps 2.0.3`，精确依赖由 `package-lock.json` 固定。服务端使用 SDK 的标准资源和工具注册及官方 MCP Apps 元数据；浏览器使用 MCP Apps 2.x bridge。`npm run test:mcp` 会真实启动已构建的 stdio 服务，验证工具发现、中文搜索、真实天气、地标对应、含城市的 Web 入口、MCP HTML 资源及非法坐标拒绝，结果写入 `docs/mcp-verification.json`。协议验证不等于桌面嵌入界面已经显示；实际宿主渲染证据在交付说明中单独列明。
 
-1.1.2 已通过官方 CLI 安装为 `atmos-weather@atmos-local`。本次通过 bundled CLI 的正式 `app-server` 协议验证：Codex 实际发现 `atmos` 服务的 5 个工具，无工具加载错误；发现并读取 `ui://atmos/weather-1.1.2.html`，资源大小为 7,649,848 字节（约 7.65 MB）；同时发现安装在 1.1.2 缓存目录中的 Skill `atmos-weather:weather`。证据见 `docs/codex-host-verification.json`。该检查没有创建新聊天，记录中的 `nativeMcpAppsRendered` 仍为 `false`，不代表原生视频已经完成视觉验收。
+1.1.3 已通过官方 CLI 安装为 `atmos-weather@atmos-local`。本次通过 bundled CLI 的正式 `app-server` 协议验证：Codex 实际发现 `atmos` 服务的 5 个工具，无工具加载错误；发现并读取 `ui://atmos/weather-1.1.3.html`，资源大小为 7,649,884 字节（约 7.65 MB）；同时发现安装在 1.1.3 缓存目录中的 Skill `atmos-weather:weather`。证据见 `docs/codex-host-verification.json`。该检查没有创建新聊天，记录中的 `nativeMcpAppsRendered` 仍为 `false`，不代表原生视频已经完成视觉验收。
 
-MCP Apps 原生内嵌视觉验收尚未完成。既有验收时，Computer Use 无法读取 ChatGPT/Codex 原生窗口，MCP Apps 专用标签目录为空；分发官方格式深链没有被当作显示成功。Codex In-app Browser 的实际 DOM 与截图已验证独立 Web 入口，包括真实天气和风景。升级到 1.1.2 后仍需在新聊天选择插件，现场确认原生内嵌影片的加载与播放；不能用 Web 播放或协议成功替代这一验收。
+2026-10-02 后续复验已在宿主 `26.928.40906` 的原生聊天侧栏读取到 1.1.2 界面：杭州照片与收藏图可见，切换纽约后 HTTPS 影片成功解码为 3840 × 2160、`readyState=4`、无媒体错误；播放按钮启用，点击进入播放状态。连续播放与暂停检查随后因界面连接超时中断。详情页右上角「打开插件」的全局视图尚未取得现场证据，不能以聊天侧栏或独立 Web 验证代替。完整检查范围和限制见[播放验收记录](video-playback-verification.md#原生入口复验--2026-10-02)。`codex-host-verification.json` 现记录 1.1.3 的协议验证结果，不作为原生 UI 验收记录。
 
 ## 官方依据
 

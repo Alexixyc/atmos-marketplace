@@ -31,17 +31,17 @@ npm run dev
 
 ## 2. 更新版本与文档
 
-当前发行版本为 `1.1.2`（2026-10-02），历史见[版本记录](changelog.md)。后续每次正式发布提高版本，例如下次修复使用 `1.1.3`、新增兼容功能使用 `1.2.0`。以下以发布 `1.1.3` 为例，执行时替换为实际版本。
+当前发行版本为 `1.1.3`（2026-10-02），历史见[版本记录](changelog.md)。后续每次正式发布提高版本，例如下次修复使用 `1.1.4`、新增兼容功能使用 `1.2.0`。以下命令以下次修复版 `1.1.4` 为例，执行时替换为实际版本。
 
 ```bash
-npm version 1.1.3 --no-git-tag-version
+npm version 1.1.4 --no-git-tag-version
 ```
 
 随后把 `plugin.json` 与 `.codex-plugin/plugin.json` 的 `version` 改为同一版本。`npm version` 会同步 `package.json` 和 `package-lock.json`；打包脚本还会检查两份插件清单的一致性。宿主客户端版本标识位于 `src/host.ts`，侧栏版本位于 `src/App.tsx`，发行时也应同步。MCP 与 Web 服务版本由 `server/loopback.ts` 从 `package.json` 读取，在构建时打包。保留插件名 `atmos-weather` 和市场名 `atmos-local`。
 
 更新用户指南、相关技术文档及必要的截图。依赖变化后更新 `THIRD_PARTY_NOTICES.md`；更换照片后更新 `docs/landscapes.md` 及来源记录。分发需要保留上游作者、许可和改动说明。
 
-MCP UI resource URI 由插件版本生成（当前 `ui://atmos/weather-1.1.2.html`），正式发布时以新版本重新构建，避免宿主沿用旧 HTML。当前内嵌影片单独固定到已经发布的 `v1.1.1` 标签；应用升级无需随意改变未变动的媒体地址。
+MCP UI resource URI 由插件版本生成（当前 `ui://atmos/weather-1.1.3.html`），正式发布时以新版本重新构建，避免宿主沿用旧 HTML。当前内嵌影片单独固定到已经发布的 `v1.1.1` 标签；1.1.3 没有改变 HTTPS 内嵌与 Web 本地播放策略，应用升级无需改变未变动的媒体地址。
 
 更换影片的顺序：先将新文件发布到可公开读取的固定 Git 标签或提交，确认 HTTPS 地址可用、Range 请求真实返回 206、文件大小与 SHA-256 正确，再修改 `shared/timelapses.ts` 的 `embeddedSrc` 并发布引用它的应用版本。不要引用变化中的 `main` 或尚未发布的标签，不移动已发布标签；同时更新本地 `src` 的 `v` 参数、影片说明及打包文件。这样新应用在安装时就能访问有效媒体。
 
@@ -59,7 +59,9 @@ npm run test:marketplace
 
 功能或 UI 有变化时，另做实际交互验证并更新 `docs/verification.md`；插件元数据读取成功不等于原生内嵌界面已显示。
 
-1.1.2 的媒体检查需分别覆盖两条路径：MCP Apps 的固定 HTTPS 影片与独立 Web 的包内文件。已核实的桌面宿主会过滤 HTTP loopback `resourceDomains`，不是漏打包，不能只验证本机 Range 就判定内嵌可播。核对照片回退、20 秒前台可见等待超时、重试、独立网页按钮和减少动态效果提示；原生图形播放未现场验收时，发布说明必须保留该边界。
+自 1.1.2 起，媒体检查需分别覆盖两条路径：MCP Apps 的固定 HTTPS 影片与独立 Web 的包内文件。已核实的桌面宿主会过滤 HTTP loopback `resourceDomains`，不是漏打包，不能只验证本机 Range 就判定内嵌可播。核对照片回退、20 秒前台可见等待超时、重试、本地播放链接和减少动态效果提示；原生图形播放未现场验收时，发布说明必须保留该边界。
+
+1.1.3 修复全局入口的宿主底色遮挡。全局入口会向应用文档注入不透明的 `html, body` 背景；风景曾使用 `z-index:-1` 却没有自己的堆叠上下文，导致照片、视频被盖住，而影片仍能加载和播放。后续视觉验收要分别覆盖插件详情页「打开插件」、聊天面板与独立 Web，不能用聊天面板的结果替代全局入口。可在 Web 页面加入不透明 `html, body` 背景，检查风景仍然可见；不要通过覆盖宿主背景来绕过问题。现场证据应记录版本、照片天然尺寸、视频状态及可见截图，见[播放复验](video-playback-verification.md)。
 
 检查本次变更，提交开发源码：
 
@@ -67,7 +69,7 @@ npm run test:marketplace
 git status --short
 git add .
 git diff --cached --stat
-git commit -m "Release Atmos 1.1.3"
+git commit -m "Release Atmos 1.1.4"
 git push origin master
 ```
 
@@ -138,17 +140,17 @@ npm run test:marketplace -- .cache/atmos-marketplace
 ```bash
 git -C .cache/atmos-marketplace add .agents/plugins/marketplace.json atmos-weather README.md .gitignore release.json THIRD_PARTY_NOTICES.md
 git -C .cache/atmos-marketplace diff --cached --stat
-git -C .cache/atmos-marketplace commit -m "Release Atmos 1.1.3"
+git -C .cache/atmos-marketplace commit -m "Release Atmos 1.1.4"
 git -C .cache/atmos-marketplace push origin HEAD:main
 ```
 
 需要归档版本时，在源码提交和对应发行提交分别创建同名标签；已经发布的标签保持不变：
 
 ```bash
-git tag -a v1.1.3 -m "Atmos 1.1.3 source"
-git push origin v1.1.3
-git -C .cache/atmos-marketplace tag -a v1.1.3 -m "Atmos 1.1.3 distribution"
-git -C .cache/atmos-marketplace push origin v1.1.3
+git tag -a v1.1.4 -m "Atmos 1.1.4 source"
+git push origin v1.1.4
+git -C .cache/atmos-marketplace tag -a v1.1.4 -m "Atmos 1.1.4 distribution"
+git -C .cache/atmos-marketplace push origin v1.1.4
 ```
 
 发布后核对两边 Git 状态与远程提交号，并从发行仓库重新拉取检查。可对回拉包运行 `node scripts/smoke-mcp.mjs /path/to/checkout/atmos-weather`（会更新本地验证记录），以及 `npm run test:marketplace -- /path/to/checkout`。如果希望保持源码工作区干净，可在临时目录执行冒烟脚本，让验证报告写入临时目录的 `docs/`。
@@ -169,7 +171,7 @@ codex plugin marketplace upgrade atmos-local
 codex plugin add atmos-weather@atmos-local
 ```
 
-然后重新打开聊天并选择插件，说“打开天气”“看看杭州天气”或“切换到上海”。已有本地开发市场的维护者按[集成说明](integration.md)明确切换来源。
+然后刷新 Codex，关闭已经打开的天气页面，再从插件详情页「打开插件」或新聊天重新进入，确认侧栏版本。新聊天选择插件后可说“打开天气”“看看杭州天气”或“切换到上海”。已有本地开发市场的维护者按[集成说明](integration.md)明确切换来源。
 
 遇到需要回退的发行问题，优先在开发仓库恢复兼容行为，发布新的修复版本，保留 Git 历史。用户也可移除市场来源后用 `--ref v1.0.0` 添加已发布标签，再安装插件；固定标签后不会跟随 `main` 更新。
 

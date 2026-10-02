@@ -61312,7 +61312,7 @@ var import_node_http = require("node:http");
 // package.json
 var package_default = {
   name: "atmos-weather",
-  version: "1.1.2",
+  version: "1.1.3",
   private: true,
   type: "module",
   description: "\u89C2\u6674 \xB7 Atmos \u2014 a window onto your city's weather",

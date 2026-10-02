@@ -1,16 +1,17 @@
 {
-  "checkedAt": "2026-10-01T06:48:16.550Z",
+  "checkedAt": "2026-10-02T04:19:00.594Z",
+  "version": "1.1.3",
   "entries": [
     {
       "file": "dist/index.html",
-      "sourceSha256": "1d8eb2a9fbc3942e348af1ce5410c63d4027bf13d577475ba40828ff86a3aac8",
-      "installedSha256": "1d8eb2a9fbc3942e348af1ce5410c63d4027bf13d577475ba40828ff86a3aac8",
+      "sourceSha256": "f4a7b42ed1fc046a864f38054bf89b1484ad1c3b993f9442731f10363769d9a4",
+      "installedSha256": "f4a7b42ed1fc046a864f38054bf89b1484ad1c3b993f9442731f10363769d9a4",
       "match": true
     },
     {
       "file": "dist-server/mcp.cjs",
-      "sourceSha256": "e6f49f1e903bbf22bfca5ec04cf076a9bb99f31fa11d70245766ad2f8e4235e2",
-      "installedSha256": "e6f49f1e903bbf22bfca5ec04cf076a9bb99f31fa11d70245766ad2f8e4235e2",
+      "sourceSha256": "0b2eef2fbf365fef976df0433bff2c3559eb144584e2c04c72623112e757236f",
+      "installedSha256": "0b2eef2fbf365fef976df0433bff2c3559eb144584e2c04c72623112e757236f",
       "match": true
     }
   ]

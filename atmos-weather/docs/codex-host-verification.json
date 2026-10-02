@@ -1,27 +1,27 @@
 {
-  "verifiedAt": "2026-10-01T18:25:40.745Z",
+  "verifiedAt": "2026-10-02T04:18:17.000Z",
   "cli": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex",
   "client": "Codex Desktop/0.159.2 (Mac OS 26.5.2; arm64) dumb (atmos-verification; 1.0.0)",
   "server": "atmos",
   "pluginId": "atmos-weather@atmos-local",
   "tools": [
+    "search_cities",
     "get_weather",
-    "open_weather_app",
-    "reverse_geocode",
     "get_city_landscape",
-    "search_cities"
+    "reverse_geocode",
+    "open_weather_app"
   ],
   "toolsError": null,
   "resources": [
     {
-      "uri": "ui://atmos/weather-1.1.2.html",
+      "uri": "ui://atmos/weather-1.1.3.html",
       "mimeType": "text/html;profile=mcp-app"
     }
   ],
   "nativeMcpAppsRendered": false,
-  "resourceReadBytes": 7649848,
+  "resourceReadBytes": 7649884,
   "skill": {
     "name": "atmos-weather:weather",
-    "path": "~/.codex/plugins/cache/atmos-local/atmos-weather/1.1.2/skills/weather/SKILL.md"
+    "path": "~/.codex/plugins/cache/atmos-local/atmos-weather/1.1.3/skills/weather/SKILL.md"
   }
 }
